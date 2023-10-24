@@ -8,7 +8,7 @@ if(NOT DEFINED unleash_INSTALL_CMAKEDIR)
 endif()
 
 install(
-  TARGETS unleash
+  TARGETS unleash cpr nlohmann_json
   EXPORT unleash_Targets
   RUNTIME COMPONENT unleash_Runtime
   LIBRARY COMPONENT unleash_Runtime NAMELINK_COMPONENT unleash_Development

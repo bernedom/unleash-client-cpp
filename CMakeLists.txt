@@ -10,6 +10,21 @@ if(NOT DEFINED CMAKE_CXX_VISIBILITY_PRESET AND NOT DEFINED
   set(CMAKE_VISIBILITY_INLINES_HIDDEN YES)
 endif()
 
+include(FetchContent)
+FetchContent_Declare(
+  cpr
+  GIT_REPOSITORY https://github.com/libcpr/cpr.git
+  GIT_TAG 0817715923c9705e68994eb52ef9df3f6845beba
+)# The commit hash for 1.10.x. Replace with the latest from:
+ # https://github.com/libcpr/cpr/releases
+FetchContent_MakeAvailable(cpr)
+
+FetchContent_Declare(
+  json
+  GIT_REPOSITORY https://github.com/nlohmann/json.git
+  GIT_TAG v3.11.2)
+FetchContent_MakeAvailable(json)
+
 if(NOT CMAKE_BUILD_TYPE)
   set(CMAKE_BUILD_TYPE
       "Release"
@@ -17,11 +32,10 @@ if(NOT CMAKE_BUILD_TYPE)
 RelWithDebInfo MinSizeRel." FORCE)
 endif(NOT CMAKE_BUILD_TYPE)
 
-option(ENABLE_TESTING "Enable Test Builds" ON)
+option(ENABLE_TESTING "Enable Test Builds" OFF)
 option(ENABLE_TEST_COVERAGE "Enable Test Coverage" OFF)
 
-find_package(cpr)
-find_package(nlohmann_json)
+# find_package(cpr) find_package(nlohmann_json)
 
 # Let unleash_SHARED_LIBS override BUILD_SHARED_LIBS
 
@@ -29,9 +43,7 @@ if(DEFINED unleash_SHARED_LIBS)
   set(BUILD_SHARED_LIBS "${unleash_SHARED_LIBS}")
 endif()
 
-# External dependencies using Conan.io
-# include(cmake/Conan.cmake)
-# run_conan()
+# External dependencies using Conan.io include(cmake/Conan.cmake) run_conan()
 
 # Create the main unleash library target
 add_subdirectory(src)
