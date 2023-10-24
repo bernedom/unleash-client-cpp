@@ -17,7 +17,7 @@ add_library(
 # add_library(unleash::unleash ALIAS unleash)
 target_include_directories(
   unleash PUBLIC "$<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>")
-target_link_libraries(unleash PRIVATE cpr::cpr
+target_link_libraries(unleash PUBLIC cpr::cpr
                                       nlohmann_json::nlohmann_json)
 set_target_properties(unleash PROPERTIES VERSION ${unleash_VERSION}
                                          SOVERSION ${unleash_VERSION_MAJOR})
