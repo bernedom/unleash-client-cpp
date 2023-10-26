@@ -13,7 +13,7 @@
 namespace unleash {
 
 class UnleashClientBuilder;
-class Context;
+struct Context;
 
 class UNLEASH_EXPORT UnleashClient {
 public:
