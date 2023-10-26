@@ -1,5 +1,6 @@
 #include "unleash/strategies/userwithid.h"
 #include <iostream>
+#include <sstream>
 #include <nlohmann/json.hpp>
 
 namespace unleash {

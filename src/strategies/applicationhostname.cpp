@@ -7,6 +7,7 @@
 #include <unistd.h>
 #endif
 #include <iostream>
+#include <sstream>
 
 
 namespace unleash {
