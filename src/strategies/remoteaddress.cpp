@@ -3,7 +3,6 @@
 #include <sstream>
 #include <string>
 
-
 namespace unleash {
 RemoteAddress::RemoteAddress(std::string_view parameters, std::string_view constraints) : Strategy("remoteAddress", constraints) {
     auto remoteAddress_json = nlohmann::json::parse(parameters);
