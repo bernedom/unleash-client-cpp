@@ -2,6 +2,9 @@
 #include <iostream>
 #include <sstream>
 #include <nlohmann/json.hpp>
+#include <sstream>
+#include <string>
+
 
 namespace unleash {
 UserWithId::UserWithId(std::string_view parameters, std::string_view constraints) : Strategy("userWithId", constraints) {
